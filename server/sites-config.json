@@ -1,0 +1,16 @@
+[
+  {
+    "project": "CCI_PL_PROD",
+    "websiteUrl": "https://www.cinema-city.pl",
+    "bookNowPostersUrl": "/pl/data-api-service/v1/poster/10103/by-showing-type/SHOWING?ordering=desc",
+    "comingSoonPostersUrl": "/pl/data-api-service/v1/poster/10103/by-showing-type/FUTURE?ordering=asc",
+    "quickbookCinemasUrl": "/pl/data-api-service/v1/quickbook/10103/cinemas/with-event/until/"
+  },
+  {
+    "project": "CW_UK_PROD",
+    "websiteUrl": "https://www.cineworld.co.uk",
+    "bookNowPostersUrl": "/uk/data-api-service/v1/poster/10108/by-showing-type/SHOWING?ordering=desc",
+    "comingSoonPostersUrl": "/uk/data-api-service/v1/poster/10108/by-showing-type/FUTURE?ordering=asc",
+    "quickbookCinemasUrl": "/uk/data-api-service/v1/quickbook/10108/cinemas/with-event/until/"
+  }
+]
