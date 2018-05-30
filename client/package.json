@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "bootstrap-vue": "^2.0.0-rc.11",
     "eventsource-polyfill": "^0.9.6",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-sweetalert2": "^1.2.4",

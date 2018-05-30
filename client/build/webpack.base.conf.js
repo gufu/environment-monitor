@@ -42,9 +42,13 @@ module.exports = {
         options: vueLoaderConfig
       },
       {
+        test: /\.s[a|c]ss$/,
+        loader: 'style!css!sass'
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test'), resolve("bootstrap-vue")]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

@@ -1,22 +1,27 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div id="app" class="h-100">
+    <result-table></result-table>
   </div>
 </template>
 
 <script>
+import resultTable from './components/result-table.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  data: function () {
+    return {
+      greetings: 'Hello'
+    }
+  },
+  components: {
+    'result-table': resultTable
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  text-align: center;
-  margin-top: 60px;
-}
+  body {
+    height: 100vh !important;
+  }
+
 </style>

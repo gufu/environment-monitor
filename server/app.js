@@ -3,11 +3,22 @@ var app = express()
 var request = require('request')
 var moment = require('moment')
 var config = require('./sites-config.json')
+// var cors = require('cors')
 
 const http = require('http')
 const https = require('https')
 const cheerio = require('cheerio')
 const axios = require('axios')
+
+app.use(function (req, res, next) {
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+  next()
+})
 
 app.get('/fetch', function (req, res, next) {
   let queriedProject = Object.keys(req.query)[0]
@@ -122,6 +133,9 @@ let footerLinks = function ($) {
   return $('section.footer .hidden-xs .footer-group-item').length
 }
 
+app.use(express.static('public'))
+// app.use(cors())
+// app.options('*', cors())
 app.set('port', process.env.PORT || 8081)
 
 // Server
