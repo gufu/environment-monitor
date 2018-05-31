@@ -10,6 +10,10 @@ const https = require('https')
 const cheerio = require('cheerio')
 const axios = require('axios')
 
+const showingPosterLinkTemplate = '/{country_code}/data-api-service/v1/poster/{tenant}/by-showing-type/SHOWING?ordering=desc'
+const comingSoonPosterLinkTemplate = '/{country_code}/data-api-service/v1/poster/{tenant}/by-showing-type/FUTURE?ordering=asc'
+const cinemasLinkTemplate = '/{country_code}/data-api-service/v1/quickbook/{tenant}/cinemas/with-event/until/'
+
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -41,8 +45,16 @@ app.get('/fetch', function (req, res, next) {
   }
 })
 
+let buildLink = function (template, options) {
+  let result = ''
+  if (typeof template !== 'undefined' && typeof options !== 'undefined') {
+    result = template.replace('{country_code}', options.countryCode).replace('{tenant}', options.tenant)
+  }
+  return result
+}
+
 let processResponse = async function (req, res, options) {
-  let time = moment().format('YYYY-MM-DD HH:mm:ss ZZ')
+  let time = moment().format()
   let futureDate = moment().add(1, 'y').format('YYYY-MM-DD')
   let responseObject = {
     project: options.project,
@@ -52,16 +64,16 @@ let processResponse = async function (req, res, options) {
   }
 
   // get dynamic data for quickbook and posters
-  let bookNowPosters = await getPosters(options.websiteUrl + options.bookNowPostersUrl)
-  let comingSoonPosters = await getPosters(options.websiteUrl + options.comingSoonPostersUrl)
-  let quickbookCinemas = await getCinemasForQuickbook(options.websiteUrl + options.quickbookCinemasUrl + futureDate)
+  let bookNowPosters = await getPosters(options.websiteUrl + buildLink(showingPosterLinkTemplate, options))
+  let comingSoonPosters = await getPosters(options.websiteUrl + buildLink(comingSoonPosterLinkTemplate, options))
+  let quickbookCinemas = await getCinemasForQuickbook(options.websiteUrl + buildLink(cinemasLinkTemplate, options) + futureDate)
   responseObject['bookNowPosters'] = bookNowPosters
   responseObject['comingSoonPosters'] = comingSoonPosters
   responseObject['quickbookCinemas'] = quickbookCinemas
 
-  request(options.websiteUrl, function (error, response, html) {
-    let $ = cheerio.load(html, {xmlMode: true})
-    if (!error && response.statusCode === 200) {
+  request(options.websiteUrl, {timeout: 3000}, function (error, response, html) {
+    if (!error && typeof response !== 'undefined' && response.statusCode === 200) {
+      let $ = cheerio.load(html, {xmlMode: true})
       responseObject['version'] = getAppVersion($)
       responseObject['menuElements'] = getMenuElements($)
       responseObject['heroBanners'] = getHeroBanners($)
@@ -99,27 +111,37 @@ let getHeroBanners = function ($) {
 
 let getPosters = async function (url) {
   let result = ''
-  let response = await axios.get(url)
-  let data = response.data
-  let body = data.body
-  if (typeof body !== 'undefined' && typeof body['posters'] !== 'undefined') {
-    result = body.posters.length
-  } else {
-    result = 'error'
-  }
+  await axios.get(url, {timeout: 3000})
+    .then(function (response) {
+      let data = response.data
+      let body = data.body
+      if (typeof body !== 'undefined' && typeof body['posters'] !== 'undefined') {
+        result = body.posters.length
+      } else {
+        result = 0
+      }
+    })
+    .catch(function () {
+      result = 0
+    })
   return result
 }
 
 let getCinemasForQuickbook = async function (url) {
   let result = ''
-  let response = await axios.get(url)
-  let data = response.data
-  let body = data.body
-  if (typeof body !== 'undefined' && typeof body['cinemas'] !== 'undefined') {
-    result = body['cinemas'].length
-  } else {
-    result = 'error'
-  }
+  await axios.get(url, {timeout: 3000})
+    .then(function (response) {
+      let data = response.data
+      let body = data.body
+      if (typeof body !== 'undefined' && typeof body['cinemas'] !== 'undefined') {
+        result = body['cinemas'].length
+      } else {
+        result = 0
+      }
+    })
+    .catch(function () {
+      result = 0
+    })
   return result
 }
 
@@ -140,6 +162,7 @@ app.set('port', process.env.PORT || 8081)
 
 // Server
 var server = http.createServer(app)
+server.timeout = 5000
 server.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'))
 })

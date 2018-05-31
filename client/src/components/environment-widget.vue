@@ -1,10 +1,9 @@
 <template>
-  <div class="element" v-if="visible">
-    <div class="alert" :class="'alert-' + status" role="alert">
-      <h6 class="text-strong">{{webAddressShort}} - version: {{envStatus.version}}</h6>
+  <div class="element">
+    <div class="alert" :class="'alert-' + status" role="alert" v-if="visible">
+      <h6 class="text-strong">{{webAddressShort}} - v{{envStatus.version}}</h6>
       <p>
-        <span class="text-small text-muted">{{envStatus.lastChecked}}</span><br>
-        <!--<span class="text-small text-muted">{{envStatus.bookNowPosters}} | {{envStatus.comingSoonPosters}} | {{envStatus.quickbookCinemas}} | {{envStatus.menuElements}} | {{envStatus.heroBanners}} | {{envStatus.promoboxFirstTabItems}} | {{envStatus.footerLinks}}</span>-->
+        <span class="text-small text-muted">Updated: {{moment(envStatus.lastChecked).format('HH:mm:ss ZZ')}}</span><br>
       </p>
       <hr>
       <b-row class="numbers">
@@ -15,6 +14,12 @@
         <b-col><small>promo:</small>{{envStatus.promoboxFirstTabItems}}</b-col>
         <b-col><small>foot:</small>{{envStatus.footerLinks}}</b-col>
       </b-row>
+    </div>
+    <div class="alert alert-dark" role="alert" v-if="!visible">
+      <p class="text-small text-center">Loading data for {{this.env}}</p>
+      <div class="row text-center">
+        <div class="loader" ></div>
+      </div>
     </div>
   </div>
 </template>
@@ -30,11 +35,13 @@ export default {
       envStatus: {},
       webAddressShort: '',
       visible: false,
+      score: 0,
       status: ''
     }
   },
   methods: {
-    getInfo: function (env) {
+    getInfo: function () {
+      let env = this.env
       let vm = this
       let url = '/fetch?' + env
       api().get(url)
@@ -44,13 +51,13 @@ export default {
           vm.status = vm.checkStatus()
           vm.checkVisible()
         })
-        .catch(function (error) {
-          console.log(error)
-          this.checkVisible()
+        .catch(function () {
+          vm.checkVisible()
         })
     },
     checkVisible: function () {
-      this.visible = this.envStatus.website !== ''
+      let website = this.envStatus.website
+      this.visible = typeof website !== 'undefined' && website !== ''
     },
     getWebAddressShort: function (url) {
       let result = ''
@@ -76,7 +83,7 @@ export default {
         if (param.quickbookCinemas >= 1) {
           score += 1
         }
-        if (param.heroBanners > 1) {
+        if (param.heroBanners >= 1) {
           score += 1
         }
         if (param.promoboxFirstTabItems > 1) {
@@ -86,6 +93,7 @@ export default {
           score += 1
         }
       }
+      this.score = score
       if (score === 6) {
         result = 'success'
       } else if (score > 6 && score > 2) {
@@ -97,9 +105,14 @@ export default {
     }
   },
   mounted () {
-    this.getInfo(this.env)
-    this.checkVisible()
-    setInterval(this.getInfo(this.env), 10000)
+    let timeOffset = Math.round(Math.random() * 10000)
+    // some randomization so all components don't start asking api at the same time
+    let vm = this
+    setTimeout(function () {
+      vm.checkVisible()
+      vm.getInfo()
+      setInterval(vm.getInfo, 60 * 1000)
+    }, timeOffset)
   }
 }
 </script>
@@ -119,5 +132,21 @@ export default {
     small {
       display: block;
     }
+  }
+  .loader {
+    border-top: 8px solid #D54733;
+    border-right: 8px solid #0E5D9E;
+    border-bottom: 8px solid #ECC417;
+    border-left: 8px solid #3AA84B;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 </style>

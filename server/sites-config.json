@@ -1,16 +1,182 @@
 [
   {
     "project": "CCI_PL_PROD",
-    "websiteUrl": "https://www.cinema-city.pl",
-    "bookNowPostersUrl": "/pl/data-api-service/v1/poster/10103/by-showing-type/SHOWING?ordering=desc",
-    "comingSoonPostersUrl": "/pl/data-api-service/v1/poster/10103/by-showing-type/FUTURE?ordering=asc",
-    "quickbookCinemasUrl": "/pl/data-api-service/v1/quickbook/10103/cinemas/with-event/until/"
+    "countryCode": "pl",
+    "tenant": "10103",
+    "websiteUrl": "https://www.cinema-city.pl"
+  },
+  {
+    "project": "CCI_RH_PROD",
+    "tenant": "10104",
+    "countryCode": "il",
+    "websiteUrl": "https://www.rav-hen.co.il"
+  },
+  {
+    "project": "CCI_YP_PROD",
+    "tenant": "10100",
+    "countryCode": "il",
+    "websiteUrl": "https://yesplanet.co.il"
   },
   {
     "project": "CW_UK_PROD",
-    "websiteUrl": "https://www.cineworld.co.uk",
-    "bookNowPostersUrl": "/uk/data-api-service/v1/poster/10108/by-showing-type/SHOWING?ordering=desc",
-    "comingSoonPostersUrl": "/uk/data-api-service/v1/poster/10108/by-showing-type/FUTURE?ordering=asc",
-    "quickbookCinemasUrl": "/uk/data-api-service/v1/quickbook/10108/cinemas/with-event/until/"
+    "tenant": "10108",
+    "countryCode": "uk",
+    "websiteUrl": "https://www.cineworld.co.uk"
+  },
+  {
+    "project": "CW_IE_PROD",
+    "tenant": "10109",
+    "countryCode": "ie",
+    "websiteUrl": "https://www.cineworld.ie"
+  },
+  {
+    "project": "CCI_BG_PROD",
+    "tenant": "10106",
+    "countryCode": "bg",
+    "websiteUrl": "https://www.cinemacity.bg"
+  },
+  {
+    "project": "CCI_HU_PROD",
+    "tenant": "10102",
+    "countryCode": "hu",
+    "websiteUrl": "https://cinemacity.hu"
+  },
+  {
+    "project": "CCI_RO_PROD",
+    "tenant": "10107",
+    "countryCode": "ro",
+    "websiteUrl": "https://cinemacity.ro"
+  },
+  {
+    "project": "CCI_SK_PROD",
+    "tenant": "10105",
+    "countryCode": "sk",
+    "websiteUrl": "https://cinemacity.sk"
+  },
+  {
+    "project": "CCI_CZ_PROD",
+    "tenant": "10101",
+    "countryCode": "cs",
+    "websiteUrl": "https://cinemacity.cz"
+  },
+  {
+    "project": "CCI_PL_UATDEV",
+    "countryCode": "pl",
+    "tenant": "10103",
+    "websiteUrl": "https://plweb.uat-dev.cci-dev.pl"
+  },
+  {
+    "project": "CCI_RH_UATDEV",
+    "tenant": "10104",
+    "countryCode": "il",
+    "websiteUrl": "https://rhweb.uat-dev.cci-dev.pl"
+  },
+  {
+    "project": "CCI_YP_UATDEV",
+    "tenant": "10100",
+    "countryCode": "il",
+    "websiteUrl": "https://ilweb.uat-dev.cci-dev.pl"
+  },
+  {
+    "project": "CW_UK_UATDEV",
+    "tenant": "10108",
+    "countryCode": "uk",
+    "websiteUrl": "https://web-uat-dev.cci-dev.co.uk"
+  },
+  {
+    "project": "CW_IE_UATDEV",
+    "tenant": "10109",
+    "countryCode": "ie",
+    "websiteUrl": "https://web-uat-dev.cci-dev.ie"
+  },
+  {
+    "project": "CCI_BG_UATDEV",
+    "tenant": "10106",
+    "countryCode": "bg",
+    "websiteUrl": "https://bgweb.uat-dev.cci-dev.pl"
+  },
+  {
+    "project": "CCI_HU_UATDEV",
+    "tenant": "10102",
+    "countryCode": "hu",
+    "websiteUrl": "https://huweb.uat-dev.cci-dev.pl"
+  },
+  {
+    "project": "CCI_RO_UATDEV",
+    "tenant": "10107",
+    "countryCode": "ro",
+    "websiteUrl": "https://roweb.uat-dev.cci-dev.pl"
+  },
+  {
+    "project": "CCI_SK_UATDEV",
+    "tenant": "10105",
+    "countryCode": "sk",
+    "websiteUrl": "https://skweb.uat-dev.cci-dev.pl"
+  },
+  {
+    "project": "CCI_CZ_UATDEV",
+    "tenant": "10101",
+    "countryCode": "cs",
+    "websiteUrl": "https://czweb.uat-dev.cci-dev.pl"
+  },
+  {
+    "project": "CCI_PL_UATRELEASE",
+    "countryCode": "pl",
+    "tenant": "10103",
+    "websiteUrl": "https://plweb.uat-release.cci-dev.pl"
+  },
+  {
+    "project": "CCI_RH_UATRELEASE",
+    "tenant": "10104",
+    "countryCode": "il",
+    "websiteUrl": "https://rhweb.uat-release.cci-dev.pl"
+  },
+  {
+    "project": "CCI_YP_UATRELEASE",
+    "tenant": "10100",
+    "countryCode": "il",
+    "websiteUrl": "https://ilweb.uat-release.cci-dev.pl"
+  },
+  {
+    "project": "CW_UK_UATRELEASE",
+    "tenant": "10108",
+    "countryCode": "uk",
+    "websiteUrl": "https://web-uat-release.cci-dev.co.uk"
+  },
+  {
+    "project": "CW_IE_UATRELEASE",
+    "tenant": "10109",
+    "countryCode": "ie",
+    "websiteUrl": "https://web-uat-release.cci-dev.ie"
+  },
+  {
+    "project": "CCI_BG_UATRELEASE",
+    "tenant": "10106",
+    "countryCode": "bg",
+    "websiteUrl": "https://bgweb.uat-release.cci-dev.pl"
+  },
+  {
+    "project": "CCI_HU_UATRELEASE",
+    "tenant": "10102",
+    "countryCode": "hu",
+    "websiteUrl": "https://huweb.uat-release.cci-dev.pl"
+  },
+  {
+    "project": "CCI_RO_UATRELEASE",
+    "tenant": "10107",
+    "countryCode": "ro",
+    "websiteUrl": "https://roweb.uat-release.cci-dev.pl"
+  },
+  {
+    "project": "CCI_SK_UATRELEASE",
+    "tenant": "10105",
+    "countryCode": "sk",
+    "websiteUrl": "https://skweb.uat-release.cci-dev.pl"
+  },
+  {
+    "project": "CCI_CZ_UATRELEASE",
+    "tenant": "10101",
+    "countryCode": "cs",
+    "websiteUrl": "https://czweb.uat-release.cci-dev.pl"
   }
 ]
