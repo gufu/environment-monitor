@@ -1,4 +1,4 @@
-# Installation instructions
+## Installation instructions
 
 #### 1. Install and build client frontend
 Frontend written in vuejs, built using webpack with eslint, babel, uglify, etc.
@@ -24,7 +24,7 @@ Express server listening on port 3000
 
 ------------
 
-# Development
+## Development
 #### Frontend
 Using webpack-hot-middleware for hot-reload
 ```sh
@@ -43,7 +43,7 @@ $ npm run watch
 Express server listening on port 3000
 ```
 
-# Description
+## Description
 Software is meant to monitor website environments and status of selected components. It sends a http request to retrieve the html, parse the html to retrieve information about rendered elements and handles them according to business logic of the application.
 Displays the state of an instance using 6 parameters and score calculated based on those parameters.
 
