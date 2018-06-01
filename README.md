@@ -21,11 +21,9 @@ $ npm install
 $ npm start
 Express server listening on port 3000
 ```
-#
-#
+
 ------------
-#
-#
+
 # Development
 #### Frontend
 Using webpack-hot-middleware for hot-reload
@@ -44,8 +42,7 @@ $ npm install
 $ npm run watch
 Express server listening on port 3000
 ```
-# 
-# 
+
 # Description
 Software is meant to monitor website environments and status of selected components. It sends a http request to retrieve the html, parse the html to retrieve information about rendered elements and handles them according to business logic of the application.
 Displays the state of an instance using 6 parameters and score calculated based on those parameters.
@@ -54,11 +51,9 @@ Displays the state of an instance using 6 parameters and score calculated based 
 | x = 6 | perfect health |
 | 6 > x > 2 | warning |
 | x <= 2 | failed |
-#
-#
+
 ------------
-#
-#
+
 #### Example of healthy application state
 [![Preview](https://i.imgur.com/DkScfaf.png "Preview")](https://i.imgur.com/DkScfaf.png "Preview")
 
