@@ -2,23 +2,29 @@
   <div class="app-container">
     <b-row>
       <b-col cols="12"><h4 class="text-center">UAT DEV</h4></b-col>
-      <b-col v-bind:key="index" v-for="(env, index) in uatdevEnvs">
-        <widget :env="env"></widget>
-      </b-col>
+      <div class="card-group">
+        <template v-for="(env, index) in uatdevEnvs">
+          <widget :env="env" :key="'widget-' + index"></widget>
+        </template>
+      </div>
     </b-row>
 
     <b-row>
-      <b-col cols="12"><h4 class="text-center">UAT RELEASE</h4></b-col>
-      <b-col v-bind:key="index" v-for="(env, index) in uatreleaseEnvs">
-        <widget :env="env"></widget>
-      </b-col>
+      <b-col cols="12"><h4 class="text-center mt-sm">UAT RELEASE</h4></b-col>
+      <div class="card-group">
+        <template v-for="(env, index) in uatreleaseEnvs">
+          <widget :env="env" :key="'widget-' + index"></widget>
+        </template>
+      </div>
     </b-row>
 
     <b-row>
-      <b-col cols="12"><h4 class="text-center">PROD</h4></b-col>
-      <b-col v-bind:key="index" v-for="(env, index) in prodEnvs">
-        <widget :env="env"></widget>
-      </b-col>
+      <b-col cols="12"><h4 class="text-center mt-sm">PROD</h4></b-col>
+      <div class="card-group">
+        <template v-for="(env, index) in prodEnvs">
+          <widget :env="env" :key="'widget-' + index"></widget>
+        </template>
+      </div>
     </b-row>
   </div>
 </template>
@@ -86,25 +92,11 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
   h1, h2 {
     font-weight: normal;
   }
   .app-container {
-    padding:50px;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  .table th, .table td {
-    padding:0;
+    padding:20px 50px;
   }
 </style>

@@ -1,11 +1,9 @@
 <template>
-  <div class="element">
-    <div class="alert" :class="'alert-' + status" role="alert" v-if="visible">
-      <h6 class="text-strong">{{webAddressShort}} - v{{envStatus.version}}</h6>
-      <p>
-        <span class="text-small text-muted">Updated: {{moment(envStatus.lastChecked).format('HH:mm:ss ZZ')}}</span><br>
-      </p>
-      <hr>
+  <div class="card" :class="'border-' + status">
+    <div class="card-header" v-if="visible" :class="['bg-' + status, {'text-white': status !== ''}]">
+      <span>{{webAddressShort}}<br>- v{{envStatus.version}}</span>
+    </div>
+    <div class="card-body" v-if="visible">
       <b-row class="numbers">
         <b-col><small>menu:</small>{{envStatus.menuElements}}</b-col>
         <b-col><small>poster:</small>{{envStatus.bookNowPosters}}/{{envStatus.comingSoonPosters}}</b-col>
@@ -15,20 +13,29 @@
         <b-col><small>foot:</small>{{envStatus.footerLinks}}</b-col>
       </b-row>
     </div>
-    <div class="alert alert-dark" role="alert" v-if="!visible">
-      <p class="text-small text-center">Loading data for {{this.env}}</p>
-      <div class="row text-center">
+    <div class="card-body" v-if="!visible">
+      <h6 class="card-title text-center">{{this.env}}</h6>
+      <h6 class="card-title text-center">Loading data...</h6>
+      <loader></loader>
+      <!--<div class="row text-center">
         <div class="loader" ></div>
-      </div>
+      </div>-->
+    </div>
+    <div class="card-footer" v-if="visible">
+      <small class="text-muted">Last updated: {{moment(envStatus.lastChecked).format('HH:mm:ss ZZ')}}</small>
     </div>
   </div>
 </template>
 
 <script>
 import api from '../services/Api'
+import loader from './loader.vue'
 
 export default {
   name: 'environmentWidget',
+  components: {
+    'loader': loader
+  },
   props: ['env'],
   data: function () {
     return {
@@ -118,10 +125,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .bg-success {
-    background-color: rgba(255, 255, 255, 0)
-  }
-  p, h6 {
+  p {
     margin-bottom:.2rem;
   }
   hr {
@@ -133,20 +137,29 @@ export default {
       display: block;
     }
   }
-  .loader {
-    border-top: 8px solid #D54733;
-    border-right: 8px solid #0E5D9E;
-    border-bottom: 8px solid #ECC417;
-    border-left: 8px solid #3AA84B;
-    border-radius: 50%;
-    width: 26px;
-    height: 26px;
-    animation: spin 1s linear infinite;
-    margin: 0 auto;
-  }
+  .card-header {
+    -webkit-transition: background-color 500ms cubic-bezier(0.155, 1, 0.695, 0); /* older webkit */
+    -webkit-transition: background-color 500ms cubic-bezier(0.155, 1.650, 0.695, -0.600);
+    -moz-transition: background-color 500ms cubic-bezier(0.155, 1.650, 0.695, -0.600);
+    -o-transition: background-color 500ms cubic-bezier(0.155, 1.650, 0.695, -0.600);
+    transition: background-color 500ms cubic-bezier(0.155, 1.650, 0.695, -0.600); /* custom */
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    -webkit-transition-timing-function: cubic-bezier(0.155, 1, 0.695, 0); /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.155, 1.650, 0.695, -0.600);
+    -moz-transition-timing-function: cubic-bezier(0.155, 1.650, 0.695, -0.600);
+    -o-transition-timing-function: cubic-bezier(0.155, 1.650, 0.695, -0.600);
+    transition-timing-function: cubic-bezier(0.155, 1.650, 0.695, -0.600); /* custom */
+  }
+  .card-header, .card-body, .card-footer {
+    padding: .75rem;
+  }
+  .card-header {
+    &.bg-danger,
+    &.bg-warning,
+    &.bg-success {
+      -webkit-box-shadow: inset 28px 0px 50px -32px rgba(0,0,0,0.75);
+      -moz-box-shadow: inset 28px 0px 50px -32px rgba(0,0,0,0.75);
+      box-shadow: inset 28px 0px 50px -32px rgba(0,0,0,0.75);
+    }
   }
 </style>
