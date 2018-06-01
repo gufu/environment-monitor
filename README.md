@@ -46,11 +46,10 @@ Express server listening on port 3000
 # Description
 Software is meant to monitor website environments and status of selected components. It sends a http request to retrieve the html, parse the html to retrieve information about rendered elements and handles them according to business logic of the application.
 Displays the state of an instance using 6 parameters and score calculated based on those parameters.
-| score  | state  |
-| :------------ | :------------ |
-| x = 6 | perfect health |
-| 6 > x > 2 | warning |
-| x <= 2 | failed |
+
+score = 6 | perfect health
+6 > score > 2 | warning
+score <= 2 | failed 
 
 ------------
 
