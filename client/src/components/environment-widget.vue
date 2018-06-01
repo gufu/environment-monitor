@@ -103,7 +103,7 @@ export default {
       this.score = score
       if (score === 6) {
         result = 'success'
-      } else if (score > 6 && score > 2) {
+      } else if (score < 6 && score > 2) {
         result = 'warning'
       } else {
         result = 'danger'
