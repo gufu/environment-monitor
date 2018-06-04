@@ -81,16 +81,16 @@ export default {
         if (param.menuElements > 1) {
           score += 1
         }
-        if (param.bookNowPosters > 1) {
+        if (param.bookNowPosters > 0) {
           score += 0.5
         }
-        if (param.comingSoonPosters > 1) {
+        if (param.comingSoonPosters > 0) {
           score += 0.5
         }
-        if (param.quickbookCinemas >= 1) {
+        if (param.quickbookCinemas > 0) {
           score += 1
         }
-        if (param.heroBanners >= 1) {
+        if (param.heroBanners > 0) {
           score += 1
         }
         if (param.promoboxFirstTabItems > 1) {
