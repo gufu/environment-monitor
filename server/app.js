@@ -71,7 +71,7 @@ let processResponse = async function (req, res, options) {
   responseObject['comingSoonPosters'] = comingSoonPosters
   responseObject['quickbookCinemas'] = quickbookCinemas
 
-  request(options.websiteUrl, {timeout: 3000}, function (error, response, html) {
+  request(options.websiteUrl, {timeout: 3000, headers: { 'User-Agent': 'HTTPie/0.9.9'}}, function (error, response, html) {
     if (!error && typeof response !== 'undefined' && response.statusCode === 200) {
       let $ = cheerio.load(html, {xmlMode: true})
       responseObject['version'] = getAppVersion($)

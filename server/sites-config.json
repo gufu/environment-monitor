@@ -63,19 +63,19 @@
     "project": "CCI_PL_UATDEV",
     "countryCode": "pl",
     "tenant": "10103",
-    "websiteUrl": "https://plweb.uat-dev.cci-dev.pl"
+    "websiteUrl": "https://plweb-uat-dev.cci-dev.pl"
   },
   {
     "project": "CCI_RH_UATDEV",
     "tenant": "10104",
     "countryCode": "il",
-    "websiteUrl": "https://rhweb.uat-dev.cci-dev.pl"
+    "websiteUrl": "https://rhweb-uat-dev.cci-dev.pl"
   },
   {
     "project": "CCI_YP_UATDEV",
     "tenant": "10100",
     "countryCode": "il",
-    "websiteUrl": "https://ilweb.uat-dev.cci-dev.pl"
+    "websiteUrl": "https://ilweb-uat-dev.cci-dev.pl"
   },
   {
     "project": "CW_UK_UATDEV",
@@ -93,49 +93,49 @@
     "project": "CCI_BG_UATDEV",
     "tenant": "10106",
     "countryCode": "bg",
-    "websiteUrl": "https://bgweb.uat-dev.cci-dev.pl"
+    "websiteUrl": "https://bgweb-uat-dev.cci-dev.pl"
   },
   {
     "project": "CCI_HU_UATDEV",
     "tenant": "10102",
     "countryCode": "hu",
-    "websiteUrl": "https://huweb.uat-dev.cci-dev.pl"
+    "websiteUrl": "https://huweb-uat-dev.cci-dev.pl"
   },
   {
     "project": "CCI_RO_UATDEV",
     "tenant": "10107",
     "countryCode": "ro",
-    "websiteUrl": "https://roweb.uat-dev.cci-dev.pl"
+    "websiteUrl": "https://roweb-uat-dev.cci-dev.pl"
   },
   {
     "project": "CCI_SK_UATDEV",
     "tenant": "10105",
     "countryCode": "sk",
-    "websiteUrl": "https://skweb.uat-dev.cci-dev.pl"
+    "websiteUrl": "https://skweb-uat-dev.cci-dev.pl"
   },
   {
     "project": "CCI_CZ_UATDEV",
     "tenant": "10101",
     "countryCode": "cs",
-    "websiteUrl": "https://czweb.uat-dev.cci-dev.pl"
+    "websiteUrl": "https://czweb-uat-dev.cci-dev.pl"
   },
   {
     "project": "CCI_PL_UATRELEASE",
     "countryCode": "pl",
     "tenant": "10103",
-    "websiteUrl": "https://plweb.uat-release.cci-dev.pl"
+    "websiteUrl": "https://plweb-uat-release.cci-dev.pl"
   },
   {
     "project": "CCI_RH_UATRELEASE",
     "tenant": "10104",
     "countryCode": "il",
-    "websiteUrl": "https://rhweb.uat-release.cci-dev.pl"
+    "websiteUrl": "https://rhweb-uat-release.cci-dev.pl"
   },
   {
     "project": "CCI_YP_UATRELEASE",
     "tenant": "10100",
     "countryCode": "il",
-    "websiteUrl": "https://ilweb.uat-release.cci-dev.pl"
+    "websiteUrl": "https://ilweb-uat-release.cci-dev.pl"
   },
   {
     "project": "CW_UK_UATRELEASE",
@@ -153,30 +153,30 @@
     "project": "CCI_BG_UATRELEASE",
     "tenant": "10106",
     "countryCode": "bg",
-    "websiteUrl": "https://bgweb.uat-release.cci-dev.pl"
+    "websiteUrl": "https://bgweb-uat-release.cci-dev.pl"
   },
   {
     "project": "CCI_HU_UATRELEASE",
     "tenant": "10102",
     "countryCode": "hu",
-    "websiteUrl": "https://huweb.uat-release.cci-dev.pl"
+    "websiteUrl": "https://huweb-uat-release.cci-dev.pl"
   },
   {
     "project": "CCI_RO_UATRELEASE",
     "tenant": "10107",
     "countryCode": "ro",
-    "websiteUrl": "https://roweb.uat-release.cci-dev.pl"
+    "websiteUrl": "https://roweb-uat-release.cci-dev.pl"
   },
   {
     "project": "CCI_SK_UATRELEASE",
     "tenant": "10105",
     "countryCode": "sk",
-    "websiteUrl": "https://skweb.uat-release.cci-dev.pl"
+    "websiteUrl": "https://skweb-uat-release.cci-dev.pl"
   },
   {
     "project": "CCI_CZ_UATRELEASE",
     "tenant": "10101",
     "countryCode": "cs",
-    "websiteUrl": "https://czweb.uat-release.cci-dev.pl"
+    "websiteUrl": "https://czweb-uat-release.cci-dev.pl"
   }
 ]
