@@ -13,6 +13,7 @@ const axios = require('axios')
 const showingPosterLinkTemplate = '/{country_code}/data-api-service/v1/poster/{tenant}/by-showing-type/SHOWING?ordering=desc'
 const comingSoonPosterLinkTemplate = '/{country_code}/data-api-service/v1/poster/{tenant}/by-showing-type/FUTURE?ordering=asc'
 const cinemasLinkTemplate = '/{country_code}/data-api-service/v1/quickbook/{tenant}/cinemas/with-event/until/'
+const headers = { timeout: 3000, headers: { 'User-Agent': 'HTTPie/0.9.9'}}
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
@@ -71,7 +72,7 @@ let processResponse = async function (req, res, options) {
   responseObject['comingSoonPosters'] = comingSoonPosters
   responseObject['quickbookCinemas'] = quickbookCinemas
 
-  request(options.websiteUrl, {timeout: 3000, headers: { 'User-Agent': 'HTTPie/0.9.9'}}, function (error, response, html) {
+  request(options.websiteUrl, headers, function (error, response, html) {
     if (!error && typeof response !== 'undefined' && response.statusCode === 200) {
       let $ = cheerio.load(html, {xmlMode: true})
       responseObject['version'] = getAppVersion($)
@@ -111,7 +112,7 @@ let getHeroBanners = function ($) {
 
 let getPosters = async function (url) {
   let result = ''
-  await axios.get(url, {timeout: 3000})
+  await axios.get(url, headers)
     .then(function (response) {
       let data = response.data
       let body = data.body
@@ -129,7 +130,7 @@ let getPosters = async function (url) {
 
 let getCinemasForQuickbook = async function (url) {
   let result = ''
-  await axios.get(url, {timeout: 3000})
+  await axios.get(url, headers)
     .then(function (response) {
       let data = response.data
       let body = data.body

@@ -68,7 +68,7 @@
   {
     "project": "CCI_RH_UATDEV",
     "tenant": "10104",
-    "countryCode": "il",
+    "countryCode": "rh",
     "websiteUrl": "https://rhweb-uat-dev.cci-dev.pl"
   },
   {
@@ -128,7 +128,7 @@
   {
     "project": "CCI_RH_UATRELEASE",
     "tenant": "10104",
-    "countryCode": "il",
+    "countryCode": "rh",
     "websiteUrl": "https://rhweb-uat-release.cci-dev.pl"
   },
   {

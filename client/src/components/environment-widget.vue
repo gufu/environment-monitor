@@ -93,7 +93,7 @@ export default {
         if (param.heroBanners > 0) {
           score += 1
         }
-        if (param.promoboxFirstTabItems > 1) {
+        if (param.promoboxFirstTabItems > 0) {
           score += 1
         }
         if (param.footerLinks > 1) {
