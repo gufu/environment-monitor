@@ -118,7 +118,7 @@ export default {
     setTimeout(function () {
       vm.checkVisible()
       vm.getInfo()
-      setInterval(vm.getInfo, 60 * 1000)
+      setInterval(vm.getInfo, 30 * 1000)
     }, timeOffset)
   }
 }

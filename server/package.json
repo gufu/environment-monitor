@@ -19,6 +19,7 @@
     "https": "^1.0.0",
     "jade": "~1.11.0",
     "logger": "0.0.1",
+    "memory-cache": "^0.2.0",
     "moment": "^2.22.1",
     "morgan": "~1.9.0",
     "request": "^2.86.0",

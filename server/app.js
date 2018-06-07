@@ -3,7 +3,7 @@ var app = express()
 var request = require('request')
 var moment = require('moment')
 var config = require('./sites-config.json')
-// var cors = require('cors')
+var mcache = require('memory-cache')
 
 const http = require('http')
 const https = require('https')
@@ -25,7 +25,25 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.get('/fetch', function (req, res, next) {
+var cache = (duration) => {
+  return (req, res, next) => {
+    let key = '__express__' + req.originalUrl || req.url
+    let cachedBody = mcache.get(key)
+    if (cachedBody) {
+      res.send(cachedBody)
+      return
+    } else {
+      res.sendResponse = res.send
+      res.send = (body) => {
+        mcache.put(key, body, duration * 1000);
+        res.sendResponse(body)
+      }
+      next()
+    }
+  }
+}
+
+app.get('/fetch', cache(30), function (req, res, next) {
   let queriedProject = Object.keys(req.query)[0]
 
   let tenant = config.find(x => x.project === queriedProject)
