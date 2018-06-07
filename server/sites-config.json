@@ -178,5 +178,66 @@
     "tenant": "10101",
     "countryCode": "cs",
     "websiteUrl": "https://czweb-uat-release.cci-dev.pl"
+  },
+
+  {
+    "project": "CCI_PL_STG",
+    "countryCode": "pl",
+    "tenant": "10103",
+    "websiteUrl": "https://plstg.cci-dev.pl"
+  },
+  {
+    "project": "CCI_RH_STG",
+    "tenant": "10104",
+    "countryCode": "rh",
+    "websiteUrl": "https://rhstg.cci-dev.pl"
+  },
+  {
+    "project": "CCI_YP_STG",
+    "tenant": "10100",
+    "countryCode": "il",
+    "websiteUrl": "https://ilstg.cci-dev.pl"
+  },
+  {
+    "project": "CW_UK_STG",
+    "tenant": "10108",
+    "countryCode": "uk",
+    "websiteUrl": "https://stg.cineworld.co.uk"
+  },
+  {
+    "project": "CW_IE_STG",
+    "tenant": "10109",
+    "countryCode": "ie",
+    "websiteUrl": "https://stg.cineworld.ie/"
+  },
+  {
+    "project": "CCI_BG_STG",
+    "tenant": "10106",
+    "countryCode": "bg",
+    "websiteUrl": "https://bgstg.cci-dev.pl"
+  },
+  {
+    "project": "CCI_HU_STG",
+    "tenant": "10102",
+    "countryCode": "hu",
+    "websiteUrl": "https://hustg.cci-dev.pl"
+  },
+  {
+    "project": "CCI_RO_STG",
+    "tenant": "10107",
+    "countryCode": "ro",
+    "websiteUrl": "https://rostg.cci-dev.pl"
+  },
+  {
+    "project": "CCI_SK_STG",
+    "tenant": "10105",
+    "countryCode": "sk",
+    "websiteUrl": "https://skstg.cci-dev.pl"
+  },
+  {
+    "project": "CCI_CZ_STG",
+    "tenant": "10101",
+    "countryCode": "cs",
+    "websiteUrl": "https://czstg.cci-dev.pl"
   }
 ]

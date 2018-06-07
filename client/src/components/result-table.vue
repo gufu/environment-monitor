@@ -19,6 +19,15 @@
     </b-row>
 
     <b-row>
+      <b-col cols="12"><h4 class="text-center mt-sm">STG</h4></b-col>
+      <div class="card-group">
+        <template v-for="(env, index) in stgEnvs">
+          <widget :env="env" :key="'widget-' + index"></widget>
+        </template>
+      </div>
+    </b-row>
+
+    <b-row>
       <b-col cols="12"><h4 class="text-center mt-sm">PROD</h4></b-col>
       <div class="card-group">
         <template v-for="(env, index) in prodEnvs">
@@ -86,6 +95,18 @@ export default {
         'CCI_RO_UATRELEASE',
         'CW_UK_UATRELEASE',
         'CW_IE_UATRELEASE'
+      ],
+      stgEnvs: [
+        'CCI_YP_STG',
+        'CCI_CZ_STG',
+        'CCI_HU_STG',
+        'CCI_BG_STG',
+        'CCI_PL_STG',
+        'CCI_RH_STG',
+        'CCI_SK_STG',
+        'CCI_RO_STG',
+        'CW_UK_STG',
+        'CW_IE_STG'
       ]
     }
   }

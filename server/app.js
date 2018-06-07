@@ -13,7 +13,7 @@ const axios = require('axios')
 const showingPosterLinkTemplate = '/{country_code}/data-api-service/v1/poster/{tenant}/by-showing-type/SHOWING?ordering=desc'
 const comingSoonPosterLinkTemplate = '/{country_code}/data-api-service/v1/poster/{tenant}/by-showing-type/FUTURE?ordering=asc'
 const cinemasLinkTemplate = '/{country_code}/data-api-service/v1/quickbook/{tenant}/cinemas/with-event/until/'
-const headers = { timeout: 3000, headers: { 'User-Agent': 'HTTPie/0.9.9'}}
+const headers = { timeout: 5000, headers: { 'User-Agent': 'HTTPie/0.9.9'}}
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
